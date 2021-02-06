@@ -39,11 +39,11 @@ headers = {
 ##############################################################################
 
 # randomly choose an artist ID from a list
+# Justin Bieber, Beyonce, Chris Brown 
 id_list = ['1uNFoZAHBGtllmzznpCI3s','7bXgB6jMjp9ATFy66eO08Z', '6vWDO969PvNqNYHIOW5v0m']
 artistID = random.choice(id_list)
 
 BASE_URL ='https://api.spotify.com/v1/artists/{}/top-tracks'.format(artistID)
-
 
 def get_info():
     '''Returns a list of a chosen song info: artist, name, url, image'''
@@ -56,7 +56,7 @@ def get_info():
     
     data = response.json()
     
-    #choose a random song
+    # choose a random song
     random_song_num = random.randint(0, 9)
     
     def get_artist_name():
