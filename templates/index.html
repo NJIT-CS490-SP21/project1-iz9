@@ -58,13 +58,15 @@
       </div>
 
         <!-- ================ Lyrics and Preview Link Button ================ -->
+        
        <button onclick=" window.open('http://google.com','_blank')">VIEW LYRICS</button>
-      
+      <div class="button-container">
        {% if data_display[2] is not string %}
            <button disabled>PREVIEW UNAVAILABLE</button>
         {% else %}
             <button onclick=" window.open(' {{data_display[2]}} ')">PREVIEW LINK</button>
         {% endif %}
+        </div>
         
     </section>
   </div>
