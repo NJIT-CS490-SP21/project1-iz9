@@ -1,17 +1,72 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+  <link rel="stylesheet" href={{ url_for( 'static', filename='style.css' ) }} />
+  <title>Music Discovery App</title>
 </head>
-
 <body>
-    <h1>Top Tracks for Artist</h1>
-    <p>{{data_display[0]}}</p>
-    <p>{{data_display[1]}}</p>
-    <p>{{data_display[2]}}</p>
-    <img src="{{data_display[3]}}"/>
+  <div class="bg">
+    <section class="player">
+      <div class="container">
 
+        <!-- ================ Top Icons ================ -->
+
+        <div class="top-icons">
+          <a href="#"><i class="far fa-heart"></i></a>
+          <a href="#"><i class="fa fa-plus"></i></a>
+        </div>
+
+        <!-- ================ img ================ -->
+
+        <div class="img">
+          <img src="{{data_display[3]}}"/>
+        </div>
+
+        <!-- ================ Text ================ -->
+
+        <div class="text">
+          <h1>{{data_display[1]}}</h1>
+          <h4>{{data_display[0]}}</h4>
+        </div>
+
+        <!-- ================ Time ================ -->
+
+        <div class="time">
+          <a href="#">1:43</a>
+          <a href="#">3:00</a>
+        </div>
+
+        <!-- ================ Seek Bar ================ -->
+
+        <div class="seek">
+          <div class="fill"></div>
+          <div class="handle"></div>
+        </div>
+
+        <!-- ================ Play Buttons ================ -->
+
+        <div class="btns">
+          <a href="#"><i class="fa fa-retweet"></i></a>
+          <a href="#"><i class="fa fa-backward"></i></a>
+          <a href="#"><i class="fa fa-pause"></i></a>
+          <a href="#"><i class="fa fa-forward"></i></a>
+          <a href="#"><i class="fa fa-random"></i></a>
+        </div>
+      </div>
+
+        <!-- ================ Lyrics and Preview Link Button ================ -->
+       <button onclick=" window.open('http://google.com','_blank')">VIEW LYRICS</button>
+      
+       {% if data_display[2] is not string %}
+           <button disabled>PREVIEW UNAVAILABLE</button>
+        {% else %}
+            <button onclick=" window.open(' {{data_display[2]}} ')">PREVIEW LINK</button>
+        {% endif %}
+        
+    </section>
+  </div>
 </body>
-
 </html>
