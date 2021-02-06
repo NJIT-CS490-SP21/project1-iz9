@@ -8,6 +8,7 @@
   <title>Music Discovery App</title>
 </head>
 <body>
+  <audio src=" {{ data_display[2] }} "></audio>
   <div class="bg">
     <section class="player">
       <div class="container">
@@ -22,7 +23,7 @@
         <!-- ================ img ================ -->
 
         <div class="img">
-          <img src="{{data_display[3]}}"/>
+          <img src=" {{data_display[3]}} "/>
         </div>
 
         <!-- ================ Text ================ -->
@@ -50,10 +51,10 @@
 
         <div class="btns">
           <a href="#"><i class="fa fa-retweet"></i></a>
-          <a href="#"><i class="fa fa-backward"></i></a>
-          <a href="#"><i class="fa fa-pause"></i></a>
-          <a href="#"><i class="fa fa-forward"></i></a>
-          <a href="#"><i class="fa fa-random"></i></a>
+          <a href="#"><i class="fa fa-backward" ></i></a>
+          <a href="#"><i class="fa fa-play" ></i></a>
+          <a href="javascript:history.go(0)"><i class="fa fa-forward" ></i></a>
+          <a href="javascript:history.go(0)"><i class="fa fa-random"></i></a>
         </div>
       </div>
 
@@ -70,5 +71,6 @@
         
     </section>
   </div>
+  <script src="player.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@ This app will use the Spotify API and Genius API to dynamically generate data. I
 
 ## Install Requirements (if you don't already have them)
 ```bash
-pip install python-dotenv
+pip install -U python-dotenv
 ```
 ```bash
 pip install requests
