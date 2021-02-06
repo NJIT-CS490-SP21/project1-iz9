@@ -11,9 +11,9 @@ def hello_world():
     data_display = get_info()
     
     return render_template("index.html", data_display=data_display)
-    
   
 app.run(
+    #visible server and port, server restarts with changes
     host=os.getenv('IP', '0.0.0.0'),
     port=int(os.getenv('PORT', 8080)),
     debug=True

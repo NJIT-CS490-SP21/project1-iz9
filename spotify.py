@@ -5,12 +5,17 @@ import random
 
 load_dotenv(find_dotenv()) # This is to load your API keys from .env
 
+##################################
+###'''CLIENT CREDENTIAL FLOW'''###
+##################################
+
+# keys from spotify account hidden in .env
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 
 AUTH_URL = 'https://accounts.spotify.com/api/token'
 
-# POST
+# POST a request 
 auth_response = requests.post(AUTH_URL, {
 'grant_type': 'client_credentials',
 'client_id': CLIENT_ID,
@@ -27,14 +32,21 @@ headers = {
 'Authorization': 'Bearer {token}'.format(token=access_token)
 }
 
+######################################
+###'''CLIENT CREDENTIAL FLOW END'''###
+######################################
+
+##############################################################################
+
 # randomly choose an artist ID from a list
 id_list = ['1uNFoZAHBGtllmzznpCI3s','7bXgB6jMjp9ATFy66eO08Z', '6vWDO969PvNqNYHIOW5v0m']
-songID = random.choice(id_list)
+artistID = random.choice(id_list)
 
-BASE_URL ='https://api.spotify.com/v1/artists/{}/top-tracks'.format(songID)
+BASE_URL ='https://api.spotify.com/v1/artists/{}/top-tracks'.format(artistID)
 
 
 def get_info():
+    '''Returns a list of a chosen song info: artist, name, url, image'''
 
     params = {'market' : 'US'}
         
@@ -44,6 +56,7 @@ def get_info():
     
     data = response.json()
     
+    #choose a random song
     random_song_num = random.randint(0, 9)
     
     def get_artist_name():
@@ -65,42 +78,3 @@ def get_info():
     info_array = [get_artist_name(), get_song_name(), get_preview_url(), get_image_url()]
     
     return (info_array)
-    
-    
-    
-    
-
-
-#print(artist_name())
-
-
-'''
-def get_track_info():
-    
-    params = {'limit' : 10}
-    
-    response = requests.get(BASE_URL,
-                        headers=headers,
-                        params=params)
-    
-    data = response.json()
-    
-    def get_artist_name():
-        for i in range(0, 10):
-            var1 = (data['tracks'][i]['artists'][0]['name'])
-            print(var1)
-        return var1
-    
-    names = get_artist_name()
-    return names
-'''
-
-    # Print tracks and info for first 10 tracks returned by artist id
-    #for i in range(0, 10):
-        #print(data['tracks'][i]["name"])  #song name
-        #print(data['tracks'][i]["album"]["images"][2]["url"]) #song-related image
-        #print(data['tracks'][i]["external_urls"]["spotify"]) # song preview URL
-        #print(data['tracks'][i]['artists'][0]['name']) #artist
-        
-    
-    
