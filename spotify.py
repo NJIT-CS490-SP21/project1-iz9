@@ -31,21 +31,43 @@ headers = {
 id_list = ['1uNFoZAHBGtllmzznpCI3s','7bXgB6jMjp9ATFy66eO08Z', '6vWDO969PvNqNYHIOW5v0m']
 songID = random.choice(id_list)
 
-BASE_URL ='https://api.spotify.com/v1/artists/{}/top-tracks?market=US'.format(songID)
+BASE_URL ='https://api.spotify.com/v1/artists/{}/top-tracks'.format(songID)
 
 
-params = {'limit' : 10}
+def get_info():
+
+    params = {'market' : 'US'}
+        
+    response = requests.get(BASE_URL,
+                        headers=headers,
+                        params=params)
     
-response = requests.get(BASE_URL,
-                    headers=headers,
-                    params=params)
-
-data = response.json()
-
-def artist_name():
-    for i in range(0, 10):
-        var1 = (data['tracks'][i]['artists'][0]['name'])
-    return (var1)
+    data = response.json()
+    
+    random_song_num = random.randint(0, 9)
+    
+    def get_artist_name():
+        artist_name = data['tracks'][random_song_num]['artists'][0]['name']
+        return (artist_name)
+    
+    def get_song_name():
+        song_name = data['tracks'][random_song_num]['name']
+        return (song_name)
+        
+    def get_preview_url():
+        preview_url = data['tracks'][random_song_num]['preview_url']
+        return (preview_url)
+        
+    def get_image_url():
+        image_url = data['tracks'][random_song_num]['album']['images'][1]['url']
+        return (image_url)
+    
+    info_array = [get_artist_name(), get_song_name(), get_preview_url(), get_image_url()]
+    
+    return (info_array)
+    
+    
+    
     
 
 

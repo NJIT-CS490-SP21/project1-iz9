@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template
-from spotify import artist_name
+from spotify import get_info
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -8,9 +8,9 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 @app.route('/')
 def hello_world():
     """ Returns root endpoint HTML """
-    #data_display = get_track_info()
+    data_display = get_info()
     
-    return render_template("index.html")
+    return render_template("index.html", data_display=data_display)
     
   
 app.run(
