@@ -75,7 +75,6 @@ def get_info():
         image_url = data['tracks'][random_song_num]['album']['images'][1]['url']
         return (image_url)
         
-    
     info_array = [get_artist_name(), get_song_name(), get_preview_url(), get_image_url()]
     
     return (info_array)
