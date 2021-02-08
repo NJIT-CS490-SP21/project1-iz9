@@ -8,7 +8,7 @@
   <title>Music Discovery App</title>
 </head>
 <body>
-  <audio src=" {{ data_display[2] }} "></audio>
+  <audio src=" {{ data_display[2] }} " id="song"></audio>
   <div class="bg">
     <section class="player">
       <div class="container">
@@ -23,9 +23,11 @@
         <!-- ================ img ================ -->
 
         <div class="img">
-          <img src=" {{data_display[3]}} "/>
+          <div class="vinyl"></div><!--  /.vinyl -->
+          <img src="{{data_display[3]}}"/>
         </div>
-
+        
+      
         <!-- ================ Text ================ -->
 
         <div class="text">
@@ -33,44 +35,29 @@
           <h4>{{data_display[0]}}</h4>
         </div>
 
-        <!-- ================ Time ================ -->
-
-        <div class="time">
-          <a href="#">1:43</a>
-          <a href="#">3:00</a>
-        </div>
-
-        <!-- ================ Seek Bar ================ -->
-
-        <div class="seek">
-          <div class="fill"></div>
-          <div class="handle"></div>
-        </div>
-
         <!-- ================ Play Buttons ================ -->
 
         <div class="btns">
-          <a href="#"><i class="fa fa-retweet"></i></a>
-          <a href="#"><i class="fa fa-backward" ></i></a>
-          <a href="#"><i class="fa fa-play" ></i></a>
-          <a href="javascript:history.go(0)"><i class="fa fa-forward" ></i></a>
+          <!-- <a href="#"><i class="fa fa-retweet"></i></a> -->
+          <!-- <a href="#"><i class="fa fa-backward" ></i></a> -->
+          <!-- <a href="#"><i class="fa fa-play" ></i></a> -->
           <a href="javascript:history.go(0)"><i class="fa fa-random"></i></a>
+          <a href="javascript:history.go(0)"><i class="fa fa-forward" ></i></a>
+          <div class="space-cont"> </div>
+          <audio controls><source src=" {{data_display[2]}} " type="audio/mp3"></audio>
+          {% if data_display[2] is not string %}
+           <p>PREVIEW UNAVAILABLE</p>
+          {% else %}
+            <p onclick=" window.open(' {{data_display[2]}} ')">PREVIEW AVAILABLE</p>
+          {% endif %}
         </div>
       </div>
 
-        <!-- ================ Lyrics and Preview Link Button ================ -->
+        <!-- ================ Lyrics ================ -->
         
        <button onclick=" window.open('http://google.com','_blank')">VIEW LYRICS</button>
-      <div class="button-container">
-       {% if data_display[2] is not string %}
-           <button disabled>PREVIEW UNAVAILABLE</button>
-        {% else %}
-            <button onclick=" window.open(' {{data_display[2]}} ')">PREVIEW LINK</button>
-        {% endif %}
-        </div>
-        
+       
     </section>
   </div>
-  <script src="player.js"></script>
 </body>
 </html>
