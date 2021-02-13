@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template
-from spotify import get_info
+from spotify import get_info, request_song_info, matches
 
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -9,8 +9,9 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 def hello_world():
     """ Returns root endpoint HTML """
     data_display = get_info()
+    song_lyrics_url = matches(data_display[1], data_display[0])
     
-    return render_template("index.html", data_display=data_display)
+    return render_template("index.html", data_display=data_display, song_lyrics_url=song_lyrics_url)
   
 app.run(
     #visible server and port, server restarts with changes
