@@ -91,4 +91,26 @@ def request_song_info(song_name, artist_name):
     response = requests.get(search_url, data=data, headers=headers)
 
     return response
-  
+
+def matches(song_name, artist_name):    
+    '''Search for matches in the request response'''
+    response = request_song_info(song_name, artist_name)
+    json = response.json()
+    song_data = None
+    
+    # iterate over the hits key in json
+    for hit in json['response']['hits']:
+        # look for an exact match using the artist_name variable
+        if artist_name.lower() in hit['result']['primary_artist']['name'].lower():
+            # song exists in the API
+            song_data = hit
+            break
+        
+    song_lyrics = None
+    
+    # extract lyrics from URL if the song was found
+    if song_data:
+        song_url = song_data['result']['url']
+        song_lyrics = song_url
+        
+    return song_lyrics
