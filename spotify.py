@@ -9,9 +9,12 @@ load_dotenv(find_dotenv()) # This is to load your API keys from .env
 ###'''CLIENT CREDENTIAL FLOW'''###
 ##################################
 
-# keys from spotify account hidden in .env
+# keys from spotify and genius account hidden in .env
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+GENIUS_CLIENT_ID = os.getenv("GENIUS_CLIENT_ID")
+GENIUS_CLIENT_SECRET = os.getenv("GENIUS_CLIENT_SECRET")
+GEN_TOKEN = os.getenv("GEN_TOKEN")
 
 AUTH_URL = 'https://accounts.spotify.com/api/token'
 
@@ -78,3 +81,14 @@ def get_info():
     info_array = [get_artist_name(), get_song_name(), get_preview_url(), get_image_url()]
     
     return (info_array)
+    
+
+def request_song_info(song_name, artist_name):
+    base_url = 'https://api.genius.com'
+    headers = {'Authorization': 'Bearer ' + GEN_TOKEN}
+    search_url = base_url + '/search'
+    data = {'q': song_name + ' ' + artist_name}
+    response = requests.get(search_url, data=data, headers=headers)
+
+    return response
+  
