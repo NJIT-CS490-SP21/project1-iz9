@@ -54,9 +54,12 @@
       </div>
 
         <!-- ================ Lyrics ================ -->
+        {% if song_lyrics_url == None %}
+        <button type="button" disabled>LYRICS UNAVAILABLE</button>
+        {% else %}
+        <a href="{{song_lyrics_url}}" target="_parent"><button>VIEW LYRICS</button></a>
+        {% endif %}
         
-       <button onclick=" window.open('http://google.com','_blank')">VIEW LYRICS</button>
-       
     </section>
   </div>
 </body>
