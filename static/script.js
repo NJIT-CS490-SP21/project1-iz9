@@ -49,7 +49,6 @@
         var myHtml = ''; //to add result 
         if (response.items.length > 0) {
             for (var i = 0; i < response.items.length; i++) {
-                // console.log(response.items[i].name);
                 var spotifyUrl = response.items[i].external_urls.spotify;
                 var myName = '<a target="_blank" rel="noopener noreferrer" href="'+spotifyUrl+'"><div class="annoying">' + response.items[i].name + '</div></a>';
                 var imageUrl = 'static/no-image.jpg';

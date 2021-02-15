@@ -5,20 +5,20 @@
   box-sizing: border-box;
 }
 
+/* ----- web player styles: */
 body{
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /*overflow: hidden;*/
   color: #fff;
   font-weight: 200;
 }
 
 .bg{
-  /*background: url('../img/Marshmellob.jpg') no-repeat center center/cover;*/
-  background-color: #bba1ce;
-  height: 100vh;
+  background-image: url("https://htmlcolors.com/gradients-images/53-light-purple-gradient.jpg");
+  height: 104vh;
   width: 100vw;
 }
 img{
@@ -26,9 +26,9 @@ img{
 }
 .player{
   width: 400px;
-  height: 680px;
+  height: 700px;
   position: absolute;
-  top: 45%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%,-50%);
   background: rgba(255, 255, 255, 0.1);
@@ -55,7 +55,6 @@ img{
   transition: all 0.2s ease-in-out;
 }
 .img{
-  border-bottom: 3px solid #fff;
   border-radius: 50%;
 }
 .img img{
@@ -78,19 +77,21 @@ img{
 }
 .text h1{
   font-size: 1.7em;
+  color: black;
 }
 .text h4{
   font-size: 1em;
+  color: black;
 }
 .space-cont{
   padding: 10px;
 }
 .btns{
-  margin: 40px 0;
+  margin: 40px 0 0 0;
   text-align: center;
 }
 .btns a{
-  color: #fff;
+  color: black;
   font-size: 1.8em;
   margin: 0 10px;
   transition: all 0.3s ease-in-out;
@@ -113,7 +114,7 @@ button{
   transition: all 0.3s ease-in-out;
 }
 button:hover{
-  background: #02a0a5;
+  background: #b67edf;
 }
 .button-container {
 padding-top: 4px;
@@ -128,7 +129,7 @@ audio {
 }
 
 audio::-webkit-media-controls-panel{
-background-color:#c4e7eb !important;
+background-color:#AFFDE4 !important;
 }
 
 .vinyl {
@@ -161,4 +162,127 @@ p{
 }
 p:hover{
   color: #8d4abe;
+}
+
+
+/* ----- spotify search input/buttons styles: */
+.spotify-search{
+  background-image: url("https://htmlcolors.com/gradients-images/53-light-purple-gradient.jpg");
+}
+.search-box{
+  padding: 10px;
+}
+.spotify-icon{
+  height: 1.4em;
+  width: auto;
+ 
+}
+.spotify-search-header{
+  color: black;
+  font-size: 2.8em;
+  font-family: "Lucida Grande", Tahoma;
+  margin-top: 0.8em;
+  padding-left: 100px;
+  text-align: center;
+}
+.search-container{
+  text-align: center;
+  margin-top: 30px;
+}
+
+select{
+  background-color: #c4e7eb ;
+  color: black;
+  font-size: 1.3em;
+  border-radius: 12px;
+  padding: 6px 12px;
+  border: 1px solid black;
+  margin: 0 20px 0 0;
+  font-family: georgia, serif;
+  width: 150px;
+}
+
+select:focus, select:hover {
+    outline: none;
+    box-shadow: inset 0px 0px 0px 3px #69c8d3;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+input {
+  line-height: 30px;
+  background: #fafafa;
+  -webkit-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 1em;
+  color: #666;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  width: 300px;
+}
+
+.search-more-button{
+  width: 150px;
+  margin-left: 20px;
+}
+
+
+
+/* ----- main/results styles: */
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 30px;
+}
+#search-term {
+    align-self: center;
+    color: black;
+}
+
+#results-container {
+    display: flex;
+    margin: 30px 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.result-box {
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 30px; */
+    margin: 30px;
+    align-items: center;
+    width: 25%;
+    min-width: 400px;
+}
+
+.result-box a {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: black;
+}
+
+.result-box .annoying {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#more {
+    visibility: hidden;
+    width: 300px;
+    align-self: center;
+}
+
+#more.show {
+    visibility: visible;
 }
