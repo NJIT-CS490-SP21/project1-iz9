@@ -31,16 +31,13 @@
         <!-- ================ Text ================ -->
 
         <div class="text">
-          <h1>{{data_display[1]}}</h1>
+          <b><h1>{{data_display[1]}}</h1></b>
           <h4>{{data_display[0]}}</h4>
         </div>
 
         <!-- ================ Play Buttons ================ -->
 
         <div class="btns">
-          <!-- <a href="#"><i class="fa fa-retweet"></i></a> -->
-          <!-- <a href="#"><i class="fa fa-backward" ></i></a> -->
-          <!-- <a href="#"><i class="fa fa-play" ></i></a> -->
           <a href="javascript:history.go(0)"><i class="fa fa-random"></i></a>
           <a href="javascript:history.go(0)"><i class="fa fa-forward" ></i></a>
           <div class="space-cont"> </div>
@@ -51,16 +48,46 @@
             <p onclick=" window.open(' {{data_display[2]}} ')">PREVIEW AVAILABLE</p>
           {% endif %}
         </div>
-      </div>
-
+      
         <!-- ================ Lyrics ================ -->
         {% if song_lyrics_url == None %}
-        <button type="button" disabled>LYRICS UNAVAILABLE</button>
+        <button style="margin-top: 30px;" type="button" disabled>LYRICS UNAVAILABLE</button>
         {% else %}
-        <a href="{{song_lyrics_url}}" target="_parent"><button>VIEW LYRICS</button></a>
+        <a href="{{song_lyrics_url}}" target="_blank"><button style="margin-top: 30px;">VIEW LYRICS</button></a>
         {% endif %}
-        
+      </div>
+  </div>
+          <div class="spotify-search">
+            <div class="search-box" id="search-box">
+              <h1 class="spotify-search-header">
+                <img class="spotify-icon" src="https://image.flaticon.com/icons/png/512/2111/2111624.png" alt="spotify icon">
+              Spotify Search</h1>
+              
+              <div class="search-container">
+                <select id="search-options">
+                    <option id="artist">artist</option>
+                    <option id="album">album</option>
+                </select>
+                <input type="text" name="user-input" value="">
+                <button class="search-more-button" id="submit-button">Submit</button>
+                <div style="text-align: center; margin-top:20px;">
+                <img src="https://i.gifer.com/ZZ5H.gif" id="loading-gif" 
+                style="display:none; height: 30px; width:auto;"/ >
+                </div>
+              </div>
+            </div>
+
+        <main>
+            <div id="search-term"></div>
+            <div id="results-container"></div>
+            <button class="search-more-button" id="more">See More</button>
+        </main>
+      </div>
     </section>
   </div>
+  
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/static/script.js"></script>
+
 </body>
 </html>
