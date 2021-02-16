@@ -1,5 +1,8 @@
 # Project 1 - Music Discovery Web App
-This app will use the Spotify API and Genius API to dynamically generate data. It will display artists, songs, image of song, audio, and a link to the lyrics. It also has a search bar in which the user can input an artist or an album and the data that best matches the search will fetch results and display them. The project uses the Flask python library to display the html on the '/' endpoint.
+This app will use the Spotify API and Genius API to dynamically generate data. It will display artists, songs, image of song, audio, 
+and a link to the lyrics. It also has a search bar in which the user can input an artist or an album and the data that best matches 
+the search will fetch results and display them. The project uses the Flask python library to display the html on the '/' endpoint.
+The following is the link to the app: https://prpl-tunes.herokuapp.com/
 
 ## Sign up for Spotify Developer Account and Genius API 
 1. Use [this](https://developer.spotify.com/documentation/web-api/quick-start/) website for info on setting it up.
